@@ -11,7 +11,7 @@ module.exports = {
 		vendor: ['react','react-dom','react-router']
 	},
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, './build'),
 		filename: '[name].js',
 		publicPath:'/'
 	},
@@ -33,14 +33,6 @@ module.exports = {
 	},
 	plugins:[		
         new webpack.optimize.CommonsChunkPlugin('vendor'),
-        new webpack.HotModuleReplacementPlugin(),
-		new HtmlWebpackPlugin({
-			//处理后目标位置
-			filename: path.join(__dirname, "build" + '/index.html'),
-			//模板位置
-			template: './index.html',
-			//是否插入
-			inject: false
-		})
+        new webpack.HotModuleReplacementPlugin()
 	]
 };

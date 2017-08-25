@@ -15,7 +15,7 @@ app.use(require('morgan')('short'));
 
   // Step 1: Create & configure a webpack compiler
   var webpack = require('webpack');
-  var webpackConfig = require('./webpack.config');
+  var webpackConfig = require('./webpack.config.dev');
   var compiler = webpack(webpackConfig);
 
   // Step 2: Attach the dev middleware to the compiler & the server
@@ -27,6 +27,7 @@ app.use(require('morgan')('short'));
 
   // Step 3: Attach the hot middleware to the compiler & the server
   app.use(require("webpack-hot-middleware")(compiler));
+  app.use(express.static(__dirname))
 
 
   //var server = http.createServer(app);
@@ -39,7 +40,7 @@ app.use(require('morgan')('short'));
     var host = server.address().address
     var port = server.address().port
 
-    console.log("应用实例，访问地址为 http://localhost:",port)
+    console.log("应用实例，访问地址为 http://localhost:20000")
 
   })
 
