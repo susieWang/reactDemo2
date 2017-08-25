@@ -1,7 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+// path：用来存放打包后文件的输出目录 
+// publicPath：指定资源文件引用的目录 
 module.exports = {
 	entry: {
 		main :[
@@ -13,7 +14,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'build'),
 		filename: '[name].js',
-		publicPath:'/'
+		publicPath:''
 	},
 	module: {
 		loaders: [{
