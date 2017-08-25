@@ -19,7 +19,3 @@ ReactDOM.render(
     </Router>,
     document.getElementById('content')
 );
-//如果要是用hot-middleware，需要添加
-// if(module.hot) {
-//     module.hot.accept();
-// }
