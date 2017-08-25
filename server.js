@@ -1,10 +1,10 @@
 var http = require('http');
-
 var express = require('express');
+var open  = require('opn');
 
 var app = express();
 
-var port = 20000;
+var port = "20000";
 
 app.use(require('morgan')('short'));
 
@@ -38,10 +38,10 @@ app.use(require('morgan')('short'));
   var server = app.listen(port, function() {
 
     var host = server.address().address
-    var port = server.address().port
-
-    console.log("应用实例，访问地址为 http://localhost:20000")
-
+    var port = server.address().port;
+    var uri = "http://localhost:"+port;
+    console.log("应用实例，访问地址为"+uri);
+    open(uri);
   })
 
 })();
