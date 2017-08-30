@@ -26,7 +26,7 @@ module.exports = {
 			loader: 'style!css'
 		}, {
 			test: /\.less/,
-			loader: 'style-loader!css-loader!less-loader'
+            loader: 'style-loader!css-loader?minimize&-autoprefixer!less-loader'
 		}, {
 			test: /\.(png|jpg)$/,
 			loader: 'url?limit=25000'
