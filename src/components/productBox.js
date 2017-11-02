@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-// import './app/index.less';
+// import './src/index.less';
 
 export default class productBox extends Component{
 	render(){

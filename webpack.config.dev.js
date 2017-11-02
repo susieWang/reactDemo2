@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		main :[
-			'./app/main.js',
+			'./src/main.js',
 			'webpack-hot-middleware/client'
 		],
 		vendor: ['react','react-dom','react-router']

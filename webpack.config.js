@@ -1,13 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 // path：用来存放打包后文件的输出目录 
 // publicPath：指定资源文件引用的目录 
 module.exports = {
 	entry: {
 		main :[
-			'./app/main.js',
-			'webpack-hot-middleware/client'
+			'./src/main.js'
 		],
 		vendor: ['react','react-dom','react-router']
 	},
@@ -32,9 +32,18 @@ module.exports = {
 			loader: 'url?limit=25000'
 		}]
 	},
-	plugins:[		
+	plugins:[
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+		new uglifyJsPlugin({
+			compress: {
+				warnings: true
+			}
+    	}),
         new webpack.optimize.CommonsChunkPlugin('vendor'),
-        new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			//处理后目标位置
 			filename: path.join(__dirname, "build" + '/index.html'),
