@@ -20,11 +20,8 @@ module.exports = {
 			test: /\.(js|jsx)$/,
 			loaders: ['react-hot-loader','babel-loader'],
 			exclude: /node_modules/
-		}, {
-			test: /\.css$/,
-			loader: 'style!css'
-		}, {
-			test: /\.less/,
+		},  {
+			test: /\.(less|css)$/,
 			loader: 'style-loader!css-loader!less-loader'
 		}, {
 			test: /\.(png|jpg)$/,
@@ -36,3 +33,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
 	]
 };
+/*
+{
+ test: /\.css$/,
+ loader: 'style!css'
+ },
+ */
